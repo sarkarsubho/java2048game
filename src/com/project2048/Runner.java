@@ -20,6 +20,7 @@ public class Runner {
     public static void main(String[] args) {
         Runner game = new Runner();
         game.initializeBoard();
+        
         game.playGame();
     }
 
@@ -27,12 +28,12 @@ public class Runner {
         // Initialize the board with two random tiles
         addRandomTile();
         addRandomTile();
+    	board[1][2] = 2048;
     }
 
     private void playGame() {
         Scanner scanner = new Scanner(System.in);
-//    	 Terminal terminal = TerminalBuilder.terminal();
-//         LineReader reader = LineReaderBuilder.builder().terminal(terminal).build();
+
         while (!gameOver) {
             printBoard();
             System.out.print("Enter a move (W/A/S/D): ");
@@ -172,6 +173,25 @@ public class Runner {
 
     }
     private void checkGameOver() {
+    	
+    	 // check Winning Condition
+    	   for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
+                int currentTile = board[row][col];
+                
+//                System.out.println(currentTile);
+                // Check tile value
+                if (currentTile == 2048) {
+                	gameOver = true;
+                	System.out.println("2048 Game");
+                    System.out.println("You Win.");
+                    System.out.println("Final Score : "+score);
+                    
+                    return; 
+                }
+            }
+        }
+    	   
         // Check if there are any empty cells
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
@@ -180,7 +200,10 @@ public class Runner {
                 }
             }
         }
-
+        
+       
+        
+  
         // Check if there are adjacent tiles with the same value
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
@@ -195,6 +218,8 @@ public class Runner {
                 }
             }
         }
+        
+   
 
         // If no empty cells and no adjacent matching tiles, the game is over
         gameOver = true;
