@@ -28,7 +28,7 @@ public class Runner {
         // Initialize the board with two random tiles
         addRandomTile();
         addRandomTile();
-    	board[1][2] = 2048;
+//    	board[1][2] = 2048;
     }
 
     private void playGame() {
