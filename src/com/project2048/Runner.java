@@ -62,9 +62,8 @@ public class Runner {
     private void move(String direction) {
         // Implement the logic to move the tiles and merge them
         // Update the 'gameOver' variable if the game is over
-        // Your implementation goes here
     	
-    	 boolean moved = false;
+//    	 boolean moved = false;
 
     	    switch (direction) {
     	        case "W": // Move Up
@@ -77,14 +76,14 @@ public class Runner {
     	                            board[currentRow - 1][col] = board[currentRow][col];
     	                            board[currentRow][col] = 0;
     	                            currentRow--;
-    	                            moved = true;
+//    	                            moved = true;
     	                        }
     	                        if (currentRow > 0 && board[currentRow - 1][col] == board[currentRow][col]) {
     	                            // Merge tiles
     	                            board[currentRow - 1][col] *= 2;
     	                            score+= board[currentRow][col] * 2 ;
     	                            board[currentRow][col] = 0;
-    	                            moved = true;
+//    	                            moved = true;
     	                        }
     	                    }
     	                }
@@ -101,14 +100,14 @@ public class Runner {
     	                            board[currentRow + 1][col] = board[currentRow][col];
     	                            board[currentRow][col] = 0;
     	                            currentRow++;
-    	                            moved = true;
+//    	                            moved = true;
     	                        }
     	                        if (currentRow < SIZE - 1 && board[currentRow + 1][col] == board[currentRow][col]) {
     	                            // Merge tiles
     	                            board[currentRow + 1][col] *= 2;
     	                            score+= board[currentRow][col]*2;
     	                            board[currentRow][col] = 0;
-    	                            moved = true;
+//    	                            moved = true;
     	                        }
     	                    }
     	                }
@@ -125,14 +124,14 @@ public class Runner {
     	                            board[row][currentCol - 1] = board[row][currentCol];
     	                            board[row][currentCol] = 0;
     	                            currentCol--;
-    	                            moved = true;
+//    	                            moved = true;
     	                        }
     	                        if (currentCol > 0 && board[row][currentCol - 1] == board[row][currentCol]) {
     	                            // Merge tiles
     	                            board[row][currentCol - 1] *= 2;
     	                            score+=board[row][currentCol] *2;
     	                            board[row][currentCol] = 0;
-    	                            moved = true;
+//    	                            moved = true;
     	                        }
     	                    }
     	                }
@@ -149,14 +148,14 @@ public class Runner {
     	                            board[row][currentCol + 1] = board[row][currentCol];
     	                            board[row][currentCol] = 0;
     	                            currentCol++;
-    	                            moved = true;
+//    	                            moved = true;
     	                        }
     	                        if (currentCol < SIZE - 1 && board[row][currentCol + 1] == board[row][currentCol]) {
     	                            // Merge tiles
     	                            board[row][currentCol + 1] *= 2;
     	                            score+=board[row][currentCol]*2;
     	                            board[row][currentCol] = 0;
-    	                            moved = true;
+//    	                            moved = true;
     	                        }
     	                    }
     	                }
